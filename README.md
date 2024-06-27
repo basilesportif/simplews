@@ -13,7 +13,7 @@ SimpleWS is a simple WebSocket-based counter application built for the Kinode pl
 ## Building the Project
 First, start a fake Kinode with
 ```
-kit -f
+kit f
 ```
 
 To build and install the project, run the following command in your terminal:
