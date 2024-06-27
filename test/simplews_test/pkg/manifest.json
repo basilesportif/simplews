@@ -1,0 +1,13 @@
+[
+    {
+        "process_name": "counter_test",
+        "process_wasm_path": "/counter_test.wasm",
+        "on_exit": "Restart",
+        "request_networking": false,
+        "request_capabilities": [],
+        "grant_capabilities": [
+            "counter:counter:template.os"
+        ],
+        "public": true
+    }
+]

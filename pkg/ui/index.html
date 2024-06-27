@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kinode Counter</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      text-align: center;
+    }
+
+    button {
+      font-size: 18px;
+      margin: 0 10px;
+      padding: 5px 10px;
+    }
+
+    #counter {
+      font-size: 24px;
+      margin: 20px 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Kinode Counter</h1>
+    <div id="counter">0</div>
+    <button id="decrement">-</button>
+    <button id="increment">+</button>
+  </div>
+  <script>
+    const counterElement = document.getElementById('counter');
+    const decrementButton = document.getElementById('decrement');
+    const incrementButton = document.getElementById('increment');
+
+    const ws = new WebSocket(`ws://localhost:8080/simplews:simplews:basilesex.os/ws`);
+
+    ws.onmessage = (event) => {
+      console.log(event.data);
+      const response = JSON.parse(event.data);
+      counterElement.textContent = response.value;
+    };
+
+    ws.onopen = () => {
+      ws.send(JSON.stringify({ Get: null }));
+    };
+
+    decrementButton.addEventListener('click', () => {
+      ws.send(JSON.stringify({ Decrement: null }));
+    });
+
+    incrementButton.addEventListener('click', () => {
+      ws.send(JSON.stringify({ Increment: null }));
+    });
+  </script>
+</body>
+
+</html>
