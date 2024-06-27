@@ -1,5 +1,7 @@
 # SimpleWS: A WebSocket Counter Example
 
+Made with love by Claude 3.5!
+
 SimpleWS is a simple WebSocket-based counter application built for the Kinode platform. It demonstrates how to create a basic WebSocket server that maintains a counter, allowing clients to increment, decrement, and retrieve the counter value.
 
 ## Features
