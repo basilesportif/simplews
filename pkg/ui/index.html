@@ -44,7 +44,9 @@
     const decrementButton = document.getElementById('decrement');
     const incrementButton = document.getElementById('increment');
 
-    const ws = new WebSocket(`ws://localhost:8080/simplews:simplews:basilesex.os/ws`);
+    const url = `ws://localhost:8080/juristopia:juristopia:basilesex.os/ws`
+    //const url = `ws://localhost:8080/simplews:simplews:basilesex.os/ws`
+    const ws = new WebSocket(url);
 
     ws.onmessage = (event) => {
       console.log(event.data);

@@ -104,21 +104,6 @@ fn handle_ws_message(state: &mut State, channel_id: u32) -> anyhow::Result<()> {
             bytes: response_bytes,
         },
     );
-
-    // Broadcast the new counter value to all connected clients
-    /*
-    for &client_channel in &state.ws_channels {
-        http::send_ws_push(
-            client_channel,
-            http::WsMessageType::Binary,
-            kinode_process_lib::LazyLoadBlob {
-                mime: Some("application/json".to_string()),
-                bytes: response_bytes.clone(),
-            },
-        );
-    }
-    */
-
     Ok(())
 }
 
